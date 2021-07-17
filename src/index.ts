@@ -1,5 +1,6 @@
 import { createConnection } from "typeorm";
 import dotenv from "dotenv";
+import { Client } from "./entities/Client";
 
 dotenv.config();
 
@@ -12,6 +13,10 @@ const main = async () => {
             username: process.env.DB_USERNAME!,
             password: process.env.DB_PASSWORD!,
             database: process.env.DB_DATABASE!,
+            entities: [
+                Client
+            ],
+            synchronize: true
         }); 
         console.log('Connected to Postgres');
     } catch (error) {
