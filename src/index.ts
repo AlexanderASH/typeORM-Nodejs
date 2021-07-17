@@ -2,6 +2,7 @@ import { createConnection } from "typeorm";
 import dotenv from "dotenv";
 import { Client } from "./entities/Client";
 import { Banker } from "./entities/Banker";
+import { Transaction } from './entities/Transaction';
 
 dotenv.config();
 
@@ -16,7 +17,8 @@ const main = async () => {
             database: process.env.DB_DATABASE!,
             entities: [
                 Client,
-                Banker
+                Banker,
+                Transaction
             ],
             synchronize: true
         }); 
